@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ajman Bank · Enterprise AI Awareness &amp; Practical Applications</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070b14;--bg2:#0d1424;--card:rgba(255,255,255,.05);--line:rgba(255,255,255,.12);--tx:#eef2fa;--mu:#9aa6bd;--gold:#e3b86a;--teal:#4fd1c5;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f6f3ec;--bg2:#ece7da;--card:rgba(10,20,40,.05);--line:rgba(10,20,40,.14);--tx:#101828;--mu:#4a566b;--gold:#9a6a12;--teal:#0f766e;color-scheme:light}}
+:root[data-theme="dark"]{--bg:#070b14;--bg2:#0d1424;--card:rgba(255,255,255,.05);--line:rgba(255,255,255,.12);--tx:#eef2fa;--mu:#9aa6bd;--gold:#e3b86a;--teal:#4fd1c5}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px)}
+body{margin:0;background:var(--bg);color:var(--tx);font:400 1.0625rem/1.7 Inter,system-ui,sans-serif;overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--gold);color:#000;padding:8px 14px;border-radius:8px;z-index:100}
+.skip:focus{left:8px}
+#bar{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--teal),var(--gold));z-index:60}
+nav{position:sticky;top:0;z-index:50;display:flex;gap:6px;align-items:center;justify-content:space-between;padding:12px clamp(16px,4vw,48px);background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav b{font:800 1rem Playfair Display,serif;letter-spacing:.04em;color:var(--gold)}
+nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0;overflow-x:auto}
+nav li a{display:block;padding:8px 12px;border-radius:999px;text-decoration:none;color:var(--mu);font-size:.85rem;font-weight:500;white-space:nowrap;min-height:40px}
+nav li a:hover,nav li a.on{color:var(--tx);background:var(--card)}
+.hero{min-height:92vh;display:grid;place-items:center;text-align:center;padding:clamp(40px,8vw,110px) clamp(18px,5vw,64px);position:relative;overflow:hidden;background:radial-gradient(60% 50% at 50% 0%,rgba(227,184,106,.18),transparent 70%),radial-gradient(45% 40% at 85% 80%,rgba(79,209,197,.14),transparent 70%),linear-gradient(var(--bg),var(--bg2))}
+.hero::before{content:"";position:absolute;inset:-20%;background-image:radial-gradient(var(--line) 1px,transparent 1.5px);background-size:38px 38px;mask-image:radial-gradient(circle at 50% 40%,#000,transparent 70%);animation:drift 40s linear infinite}
+@keyframes drift{to{transform:translate3d(38px,38px,0)}}
+.hero>div{position:relative;max-width:900px}
+.kick{letter-spacing:.32em;text-transform:uppercase;font-size:.78rem;color:var(--teal);font-weight:600}
+h1{font:800 clamp(2.2rem,6.5vw,4.8rem)/1.08 Playfair Display,Georgia,serif;margin:.4em 0 .3em;background:linear-gradient(120deg,var(--tx) 30%,var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lede{color:var(--mu);max-width:640px;margin:0 auto 2rem;font-size:1.15rem}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:12px 24px;border-radius:999px;background:var(--gold);color:#16100a;font-weight:600;text-decoration:none;transition:transform .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(227,184,106,.35)}
+.btn.ghost{background:transparent;color:var(--tx);border:1px solid var(--line);margin-left:8px}
+.stats{display:flex;gap:clamp(18px,4vw,48px);justify-content:center;flex-wrap:wrap;margin-top:3rem;color:var(--mu);font-size:.9rem}
+.stats strong{display:block;font:800 2rem Playfair Display,serif;color:var(--tx)}
+main{max-width:1100px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+section{padding:clamp(56px,9vw,120px) 0;border-top:1px solid var(--line)}
+.num{font:800 clamp(3rem,9vw,6rem)/1 Playfair Display,serif;color:transparent;-webkit-text-stroke:1px var(--gold);opacity:.55}
+h2{font:800 clamp(1.6rem,4vw,2.6rem)/1.15 Playfair Display,serif;margin:.2em 0 .3em}
+.sub{color:var(--mu);max-width:680px;margin:0 0 2rem}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:10px;transition:transform .3s,border-color .3s,background .3s}
+.card:hover{transform:translateY(-4px);border-color:var(--gold)}
+.card h3{margin:0;font:600 1.15rem/1.35 Inter,sans-serif}
+.card p{margin:0;color:var(--mu);font-size:.95rem}
+.tag{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);font-weight:600}
+.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:10px}
+.links a{display:inline-flex;align-items:center;min-height:44px;padding:8px 16px;border-radius:999px;border:1px solid var(--line);text-decoration:none;font-size:.88rem;font-weight:500;transition:background .2s,color .2s}
+.links a:hover{background:var(--gold);color:#16100a;border-color:var(--gold)}
+.links a::after{content:"\2197";margin-left:6px;opacity:.7}
+.group{margin:2rem 0 .8rem;font:600 .8rem Inter;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.wide{grid-column:1/-1}
+footer{border-top:1px solid var(--line);padding:48px clamp(16px,4vw,40px) 64px;text-align:center;color:var(--mu);font-size:.85rem;background:var(--bg2)}
+footer p{max-width:760px;margin:.6em auto}
+.js .rv{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s ease}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js .rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+@media (max-width:640px){nav b{display:none}.btn.ghost{margin:10px 0 0}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div id="bar" aria-hidden="true"></div>
+<nav aria-label="Sections">
+<b>AJMAN BANK · AI</b>
+<ul>
+<li><a href="#start">Start</a></li><li><a href="#m1">Foundations</a></li><li><a href="#m2">Tokens &amp; Embeddings</a></li><li><a href="#m3">Trust</a></li><li><a href="#m4">Horizon</a></li>
+</ul>
+</nav>
+
+<header class="hero" id="top">
+<div>
+<p class="kick">Ajman Bank · Learning Journey</p>
+<h1>Enterprise AI Awareness &amp; Practical Applications</h1>
+<p class="lede">From how AI learns to where banking is heading: one guided path with interactive labs, tools and real-world cases.</p>
+<a class="btn" href="#start">Begin the journey ↓</a>
+<a class="btn ghost" href="https://sites.google.com/view/ajman-bank-ai-learning/full-page-embed" target="_blank" rel="noopener">Open full TOC ↗</a>
+<div class="stats" role="list">
+<div role="listitem"><strong>5</strong>Chapters</div><div role="listitem"><strong>15+</strong>Resources</div><div role="listitem"><strong>1</strong>Clear path</div>
+</div>
+</div>
+</header>
+
+<main id="main">
+<section id="start" class="rv">
+<div class="num" aria-hidden="true">00</div>
+<h2>Start here</h2>
+<p class="sub">Orient yourself with the programme map, then answer the simplest and most important question first.</p>
+<div class="grid" data-k="start"></div>
+</section>
+
+<section id="m1" class="rv">
+<div class="num" aria-hidden="true">01</div>
+<h2>Module 1 · AI Foundations and How Modern AI Works</h2>
+<p class="sub">Understand the family tree of AI, how machines learn from data, and how large language models produce answers.</p>
+<div class="grid" data-k="m1"></div>
+</section>
+
+<section id="m2" class="rv">
+<div class="num" aria-hidden="true">02</div>
+<h2>Tokens, Context Windows &amp; Embeddings</h2>
+<p class="sub">The hidden mechanics: how text is broken apart, how much a model can hold in mind, and how meaning becomes numbers.</p>
+<p class="group">What are tokens?</p>
+<div class="grid" data-k="tok"></div>
+<p class="group">What is a context window?</p>
+<div class="grid" data-k="ctx"></div>
+<p class="group">Embeddings &amp; semantic representations</p>
+<div class="grid" data-k="emb"></div>
+</section>
+
+<section id="m3" class="rv">
+<div class="num" aria-hidden="true">03</div>
+<h2>Hallucinations, Accuracy &amp; Limitations</h2>
+<p class="sub">AI can sound confident and still be wrong. Learn to spot it, test it and decide when to trust it.</p>
+<div class="grid" data-k="m3"></div>
+</section>
+
+<section id="m4" class="rv">
+<div class="num" aria-hidden="true">04</div>
+<h2>Emerging Trends</h2>
+<p class="sub">Enterprise AI, multimodal AI, assistants, agentic AI, domain-specific models and regulatory developments shaping UAE banking.</p>
+<div class="grid" data-k="m4"></div>
+</section>
+</main>
+
+<footer>
+<p><strong>Ajman Bank · Enterprise AI Awareness &amp; Practical Applications</strong></p>
+<p>Learning resources are for awareness and educational purposes only and do not constitute legal, financial or regulatory advice. Exercises use fictional data; do not enter confidential or customer information into any external tool. Third-party sites are owned by their respective publishers.</p>
+<p>Facilitated by D. Meenakshi Sundaram · <a href="https://www.linkedin.com/in/dmsmtech" target="_blank" rel="noopener">LinkedIn</a></p>
+<p>© 2026 CIIS &amp; DMS Academy. All rights reserved.</p>
+</footer>
+
+<script>
+document.documentElement.classList.add('js');
+var D={
+start:[
+{t:'Programme TOC',d:'The complete table of contents for the Ajman Bank learning programme.',g:'Overview',l:[['Open TOC','https://sites.google.com/view/ajman-bank-ai-learning/full-page-embed']]},
+{t:'What is AI?',d:'A friendly, visual answer to the question everything else builds on.',g:'Explainer',l:[['Explore','https://aiwithdms.github.io/What-is-AI']]}],
+m1:[
+{t:'AI, ML, Deep Learning & Generative AI',d:'How the terms relate, and how traditional AI differs from generative AI.',g:'Lesson 1.1',l:[['Open lesson','https://share.gemini.google/e2FtsmtFW3GV']]},
+{t:'How AI Learns from Data',d:'See how machines recognise patterns instead of following fixed rules.',g:'Lesson 1.2',l:[['Open lab','https://aiwithdms-howailearn.netlify.app']]},
+{t:'Large Language Models',d:'An introduction to LLMs and how they generate each response.',g:'Lesson 1.3',l:[['Open lab','https://attentive-ai-insight-lab.base44.app']]}],
+tok:[
+{t:'Tokenizer playground',d:'Type any text and watch it split into tokens in real time.',g:'Try it',l:[['OpenAI Tokenizer','https://platform.openai.com/tokenizer']]},
+{t:'Tokenization, in depth',d:'Hugging Face course chapter on how tokenizers work.',g:'Read',l:[['Course chapter','https://huggingface.co/docs/course/main/en/chapter2/4']]}],
+ctx:[
+{t:'Managing the context window',d:'Official guidance on conversation state and what fits in a model\u2019s memory.',g:'Guide',l:[['OpenAI guide','https://developers.openai.com/api/docs/guides/conversation-state?api-mode=responses#managing-the-context-window'],['Model list','https://developers.openai.com/api/docs/models']]},
+{t:'Context windows, visualised',d:'Compare how much text different models can hold at once.',g:'Visual',l:[['Open visual','https://context-windows.damien-henry.com/']]}],
+emb:[
+{t:'Embeddings & semantic meaning',d:'See how words and ideas become points in a map of meaning, using banking language.',g:'Lab',l:[['Open lab','https://daft-bank-sense-ai.base44.app']]},
+{t:'Embedding Projector',d:'Fly through a 3D space of word vectors and find neighbours.',g:'Explore',l:[['TensorFlow Projector','https://projector.tensorflow.org/']]}],
+m3:[
+{t:'AI Hallucination Learning Lab',d:'Learn why models invent facts and how to verify them.',g:'Lab',l:[['Open lab','https://aiwithdms-ai-hallucination-learning.netlify.app']]},
+{t:'Can We Really Trust AI?',d:'The Gulf Horizon Bank AI Awareness Programme case experience.',g:'Case',l:[['Open case','https://sites.google.com/view/canwereallytrustaigulfhorizonb/full-page-embed']]}],
+m4:[
+{t:'UAE Bank Pulse',d:'Enterprise AI, multimodal AI, assistants, agentic AI, domain-specific models and regulation in one view.',g:'Trends',l:[['Open pulse','https://uae-bank-pulse.base44.app']]}]
+};
+function esc(s){return s.replace(/&/g,'&amp;')}
+document.querySelectorAll('[data-k]').forEach(function(g){
+ g.innerHTML=D[g.dataset.k].map(function(c){
+  return '<article class="card"><span class="tag">'+c.g+'</span><h3>'+esc(c.t)+'</h3><p>'+c.d+'</p><div class="links">'+
+  c.l.map(function(x){return '<a href="'+x[1]+'" target="_blank" rel="noopener" aria-label="'+x[0]+' (opens in new tab)">'+x[0]+'</a>'}).join('')+'</div></article>'}).join('');
+});
+var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.08});
+document.querySelectorAll('.rv').forEach(function(s){io.observe(s)});
+var bar=document.getElementById('bar'),links=[].slice.call(document.querySelectorAll('nav li a'));
+addEventListener('scroll',function(){
+ var h=document.documentElement;bar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';
+ var cur='';document.querySelectorAll('main section').forEach(function(s){if(s.getBoundingClientRect().top<160)cur=s.id});
+ links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+cur)});
+},{passive:true});
+</script>
+</body>
+</html>
